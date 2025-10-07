@@ -4,8 +4,12 @@ name: Update OpenCritic Calendar
 on:
   schedule:
     - cron: '0 6 * * 1'
-  # Также можно запустить вручную
   workflow_dispatch:
+
+# 🔥 ДОБАВИТЬ ЭТИ РАЗРЕШЕНИЯ:
+permissions:
+  contents: write
+  actions: read
 
 jobs:
   update-calendar:
