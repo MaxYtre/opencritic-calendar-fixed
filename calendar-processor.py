@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 OpenCritic Calendar Processor
-Загружает календарь OpenCritic, фильтрует события на 2 года вперед
+Загружает календарь OpenCritic, фильтрует события на заданный период
 и создает оптимизированный ICS файл для Google Calendar
 """
 
@@ -10,6 +10,10 @@ import re
 from datetime import datetime, timedelta
 from typing import List, Tuple
 import os
+
+# Настройки временного диапазона
+MONTHS_BEFORE = 2  # Месяцев назад от сегодня
+YEARS_AFTER = 2    # Лет вперед от сегодня
 
 def download_opencritic_calendar() -> str:
     """Загружает оригинальный календарь OpenCritic"""
@@ -121,18 +125,20 @@ def main():
     
     print(f"Загружен календарь размером: {len(ics_content):,} символов")
     
-    # Определяем диапазон дат (2 года вперед от сегодня)
+    # Определяем диапазон дат
     today = datetime.now()
-    end_date = today + timedelta(days=730)  # 2 года
+    start_date = today - timedelta(days=MONTHS_BEFORE * 30)  # Примерно N месяцев назад
+    end_date = today + timedelta(days=YEARS_AFTER * 365)     # N лет вперед
     
-    print(f"Фильтруем события с {today.strftime('%Y-%m-%d')} по {end_date.strftime('%Y-%m-%d')}")
+    print(f"Фильтруем события с {start_date.strftime('%Y-%m-%d')} по {end_date.strftime('%Y-%m-%d')}")
+    print(f"Диапазон: -{MONTHS_BEFORE} месяцев / +{YEARS_AFTER} лет от сегодня")
     
     # Парсим события
     events = parse_ics_events(ics_content)
     print(f"Найдено событий в исходном календаре: {len(events):,}")
     
     # Фильтруем события по дате
-    filtered_events = filter_events_by_date(events, today, end_date)
+    filtered_events = filter_events_by_date(events, start_date, end_date)
     print(f"Событий после фильтрации: {len(filtered_events):,}")
     
     # Извлекаем заголовок и футер календаря
