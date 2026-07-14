@@ -44,7 +44,7 @@
 Клонируйте репозиторий и установите необходимые зависимости:
 
 ```bash
-git clone https://github.com/your-username/opencritic-calendar-fixed.git
+git clone https://github.com/MaxYtre/opencritic-calendar-fixed.git
 cd opencritic-calendar-fixed
 pip install -r requirements.txt
 ```
