@@ -23,11 +23,11 @@
 3. Выберите **"Добавить по URL"** (From URL).
 4. Вставьте следующую ссылку:
    ```text
-   https://raw.githubusercontent.com/MaxYtre/opencritic-calendar-fixed/main/opencritic-calendar-filtered.ics
+   https://raw.githubusercontent.com/MaxYtre/opencritic-calendar-optimizer/main/opencritic-calendar-filtered.ics
    ```
 5. Нажмите **"Добавить календарь"**.
 
-*Примечание: Если у вас включен GitHub Pages для ветки main, вы также можете использовать ссылку `https://maxytre.github.io/opencritic-calendar-fixed/opencritic-calendar-filtered.ics`*
+*Примечание: Если у вас включен GitHub Pages для ветки main, вы также можете использовать ссылку `https://maxytre.github.io/opencritic-calendar-optimizer/opencritic-calendar-filtered.ics`*
 
 ---
 
@@ -44,8 +44,8 @@
 Клонируйте репозиторий и установите необходимые зависимости:
 
 ```bash
-git clone https://github.com/MaxYtre/opencritic-calendar-fixed.git
-cd opencritic-calendar-fixed
+git clone https://github.com/MaxYtre/opencritic-calendar-optimizer.git
+cd opencritic-calendar-optimizer
 pip install -r requirements.txt
 ```
 
